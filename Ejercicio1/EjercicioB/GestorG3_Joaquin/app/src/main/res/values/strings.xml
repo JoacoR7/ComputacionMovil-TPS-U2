@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Credenciales APP -->
+    <string name="app_name">GestorG3</string>
+    <string name="developer">Joaquin Ruiz</string>
+    <string name="desarrollo">Desarrollado por:</string>
+    <string name="version">Version 1.0.0</string>
+
+    <!-- LOGIN -->
+    <string name="titulo_login">Inicie sesión</string>
+    <string name="lbl_user">Usuario</string>
+    <string name="txt_user">Ingrese usuario</string>
+    <string name="lbl_password">Contraseña</string>
+    <string name="txt_password">Ingrese constraseña</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="lbl_crear_cuenta">Registrarse</string>
+</resources>
