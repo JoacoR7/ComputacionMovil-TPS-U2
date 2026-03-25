@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">video2</string>
+    <string name="bienvenido">BIENVENIDO</string>
+    <string name="ingrese_su_nombre">Ingrese su nombre</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="bienvenido_txt">"Bienvenido: "</string>
+</resources>
