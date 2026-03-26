@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">tutorialCrud</string>
+    <string name="dni">DNI</string>
+    <string name="ingreseDNI">Ingrese el DNI</string>
+    <string name="name">Nombre</string>
+    <string name="lastname">Apellido</string>
+    <string name="id">ID del cliente</string>
+    <string name="registrar">Registrar</string>
+    <string name="editar">Editar</string>
+    <string name="listado">Ir a Listado Clientes</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="buscar">Buscar</string>
+</resources>
