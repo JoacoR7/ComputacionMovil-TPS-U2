@@ -1,14 +1,13 @@
 package com.example.ejerciciod;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -17,36 +16,44 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.ejerciciod.db.DbHelper;
+import com.example.ejerciciod.db.DbContactos;
 
-public class MainActivity extends AppCompatActivity {
+public class NuevoActivity extends AppCompatActivity {
 
-    Button btnCrear;
+    Button button;
+    EditText inputTelefono, inputCorreo, inputNombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_nuevo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btnCrear = findViewById(R.id.btnCrear);
+        button = findViewById(R.id.btnGuardarRegistro);
+        inputNombre = findViewById(R.id.inputTextNombre);
+        inputTelefono = findViewById(R.id.inputTelefono);
+        inputCorreo = findViewById(R.id.inputCorreo);
 
-        btnCrear.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DbHelper dbHelper = new DbHelper(MainActivity.this);
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                if(db != null) {
-                    Toast.makeText(MainActivity.this, "Base de datos creada exitosamente", Toast.LENGTH_SHORT).show();
+                DbContactos dbContactos = new DbContactos(NuevoActivity.this);
+                long id = dbContactos.insertarContacto(inputNombre.getText().toString(), inputTelefono.getText().toString(), inputCorreo.getText().toString());
+
+                if(id > 0) {
+                    Toast.makeText(NuevoActivity.this, "Contacto creado exitosamente", Toast.LENGTH_SHORT).show();
+                    limpiar();
                 } else {
-                    Toast.makeText(MainActivity.this, "Error al crear la base de datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NuevoActivity.this, "Error al crear contacto", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -61,16 +68,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
         if(id == R.id.nuevoRegistro) {
-            Intent intent = new Intent(MainActivity.this, NuevoActivity.class);
+            Intent intent = new Intent(NuevoActivity.this, NuevoActivity.class);
             startActivity(intent);
             finish();
         } else if (id == R.id.paginaPrincipal) {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            Intent intent = new Intent(NuevoActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        } else if (id == android.R.id.home) {
+            Intent intent = new Intent(NuevoActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
+    public void limpiar() {
+        inputNombre.setText("");
+        inputTelefono.setText("");
+        inputCorreo.setText("");
+    }
 }
