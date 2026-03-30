@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EjercicioD</string>
+    <string name="hint_nombre">Nombre:</string>
+    <string name="hint_apellido">Apellido:</string>
+    <string name="hint_telefono">Telefono:</string>
+    <string name="hint_correo_electronico">Correo electrónico:</string>
+    <string name="guardar_registro">Guardar registro</string>
+    <string name="nuevo_registro">Nuevo registro</string>
+    <string name="pagina_principal">Página principal</string>
+</resources>
