@@ -12,16 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EjercicioD">
         <activity
+            android:name=".VerActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".EditarActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".CrearBDActivity"
             android:exported="false" />
         <activity
             android:name=".NuevoActivity"
             android:exported="false"
-            android:parentActivityName=".CrearBDActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CrearBDActivity" />
-        </activity>
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

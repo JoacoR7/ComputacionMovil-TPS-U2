@@ -1,14 +1,18 @@
 package com.example.ejerciciod.adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.TintTypedArray;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ejerciciod.R;
+import com.example.ejerciciod.VerActivity;
 import com.example.ejerciciod.entidades.Contacto;
 
 import java.util.ArrayList;
@@ -48,6 +52,16 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
             txtNombre = itemView.findViewById(R.id.txtNombre);
             txtTelefono = itemView.findViewById(R.id.txtTelefono);
             txtCorreo = itemView.findViewById(R.id.txtCorreo);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, VerActivity.class);
+                    intent.putExtra("ID", listaContactos.get(getAbsoluteAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

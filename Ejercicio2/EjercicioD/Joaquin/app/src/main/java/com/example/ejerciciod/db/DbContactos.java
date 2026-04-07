@@ -11,9 +11,10 @@ import com.example.ejerciciod.entidades.Contacto;
 
 import java.util.ArrayList;
 
-public class DbContactos extends DbHelper{
+public class DbContactos extends DbHelper {
 
     Context context;
+
     public DbContactos(@Nullable Context context) {
         super(context);
         this.context = context;
@@ -46,14 +47,51 @@ public class DbContactos extends DbHelper{
 
         cursorContactos = db.rawQuery("SELECT * FROM " + TABLE_CONTACTOS, null);
 
-        if(cursorContactos.moveToFirst()) {
+        if (cursorContactos.moveToFirst()) {
             do {
                 Contacto contacto = new Contacto(cursorContactos.getInt(0), cursorContactos.getString(1),
                         cursorContactos.getString(2), cursorContactos.getString(3));
                 listaContactos.add(contacto);
             } while (cursorContactos.moveToNext());
-            cursorContactos.close();;
+            cursorContactos.close();
+            ;
         }
         return listaContactos;
+    }
+
+    public Contacto verContacto(int id) {
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        Contacto contacto = null;
+        Cursor cursorContactos = null;
+
+        cursorContactos = db.rawQuery("SELECT * FROM " + TABLE_CONTACTOS + " WHERE id=" + id + " LIMIT 1", null);
+
+        if (cursorContactos.moveToFirst()) {
+
+            contacto = new Contacto(cursorContactos.getInt(0), cursorContactos.getString(1),
+                    cursorContactos.getString(2), cursorContactos.getString(3));
+        }
+        cursorContactos.close();
+
+        return contacto;
+    }
+
+    public boolean editar(int id, String nombre, String telefono, String correo_electronico) {
+        boolean editado;
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        try {
+            db.execSQL("UPDATE " + TABLE_CONTACTOS + " SET nombre = '" + nombre + "', telefono = '" +
+                    telefono + "', correo_electronico = '" + correo_electronico +"' WHERE id = " + id);
+            editado = true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            editado = false;
+        } finally {
+            db.close();
+        }
+        return editado;
     }
 }
