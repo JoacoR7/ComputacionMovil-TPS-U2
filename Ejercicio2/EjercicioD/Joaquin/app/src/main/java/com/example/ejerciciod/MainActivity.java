@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
         listaContactos.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         ListaContactoAdapter listaContactoAdapter = new ListaContactoAdapter(dbContactos.mostrarContactos());
         listaContactos.setAdapter(listaContactoAdapter);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String mensaje = extras.getString("mensaje");
+            if (mensaje != null) {
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

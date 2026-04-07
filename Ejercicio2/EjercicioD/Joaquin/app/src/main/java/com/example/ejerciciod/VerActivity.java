@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +27,7 @@ public class VerActivity extends AppCompatActivity {
 
     EditText inputTextNombre, inputTelefono, inputCorreo;
     Button btn;
-    FloatingActionButton fabEditar;
+    FloatingActionButton fabEditar, fabEliminar;
 
     Contacto contacto;
     int id = 0;
@@ -51,6 +52,10 @@ public class VerActivity extends AppCompatActivity {
         inputCorreo = findViewById(R.id.inputCorreo);
         btn = findViewById(R.id.btnEdit);
         fabEditar = findViewById(R.id.floatingActionButton);
+        fabEliminar = findViewById(R.id.floatingActionButton2);
+        fabEliminar.setVisibility(View.INVISIBLE);
+
+        btn.setVisibility(View.INVISIBLE);
 
         if(savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -70,7 +75,6 @@ public class VerActivity extends AppCompatActivity {
             inputTextNombre.setText(contacto.getNombre());
             inputTelefono.setText(contacto.getTelefono());
             inputCorreo.setText(contacto.getCorreo_electronico());
-            btn.setVisibility(View.INVISIBLE);
             inputTextNombre.setInputType(InputType.TYPE_NULL);
             inputTelefono.setInputType(InputType.TYPE_NULL);
             inputCorreo.setInputType(InputType.TYPE_NULL);

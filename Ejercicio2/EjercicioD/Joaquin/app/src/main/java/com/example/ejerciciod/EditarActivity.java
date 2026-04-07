@@ -27,11 +27,10 @@ public class EditarActivity extends AppCompatActivity {
 
     EditText inputTextNombre, inputTelefono, inputCorreo;
     Button btnEdit;
-    FloatingActionButton fabEditar;
+    FloatingActionButton fabEditar, fabEliminar;
 
     Contacto contacto;
     int id = 0;
-    boolean editado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,7 @@ public class EditarActivity extends AppCompatActivity {
         inputCorreo = findViewById(R.id.inputCorreo);
         btnEdit = findViewById(R.id.btnEdit);
         fabEditar = findViewById(R.id.floatingActionButton);
+        fabEliminar = findViewById(R.id.floatingActionButton2);
         fabEditar.setVisibility(View.INVISIBLE);
 
         if(savedInstanceState == null) {
@@ -78,6 +78,7 @@ public class EditarActivity extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean editado;
                 if(!inputTextNombre.getText().toString().isBlank()
                 && !inputTelefono.getText().toString().isBlank()
                 && !inputCorreo.getText().toString().isBlank()) {
@@ -95,6 +96,34 @@ public class EditarActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        fabEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new androidx.appcompat.app.AlertDialog.Builder(EditarActivity.this)
+                        .setTitle("Confirmar eliminación")
+                        .setMessage("¿Estás seguro de que deseas eliminar este registro?")
+                        .setPositiveButton("Sí", (dialog, which) -> {
+
+                            boolean eliminado = dbContactos.eliminar(id);
+
+                            if (eliminado) {
+                                Intent intent = new Intent(EditarActivity.this, MainActivity.class);
+                                intent.putExtra("mensaje", "Registro eliminado");
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(EditarActivity.this, "Error al eliminar", Toast.LENGTH_SHORT).show();
+                            }
+
+                        })
+                        .setNegativeButton("Cancelar", (dialog, which) -> {
+                            dialog.dismiss(); // cierra el diálogo
+                        })
+                        .show();
             }
         });
     }
