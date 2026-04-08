@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,10 +22,13 @@ import com.example.ejerciciod.entidades.Contacto;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     RecyclerView listaContactos;
     ArrayList<Contacto> arrayContactos;
+    SearchView searchContacto;
+
+    private ListaContactoAdapter listaContactoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +44,16 @@ public class MainActivity extends AppCompatActivity {
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         DbContactos dbContactos = new DbContactos(MainActivity.this);
+        listaContactoAdapter = new ListaContactoAdapter(dbContactos.mostrarContactos());
+
         arrayContactos = new ArrayList<>();
+        searchContacto = findViewById(R.id.searchContacto);
 
         listaContactos = findViewById(R.id.listaContactos);
         listaContactos.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        ListaContactoAdapter listaContactoAdapter = new ListaContactoAdapter(dbContactos.mostrarContactos());
+
         listaContactos.setAdapter(listaContactoAdapter);
 
         Bundle extras = getIntent().getExtras();
@@ -55,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
             }
         }
+
+        searchContacto.setOnQueryTextListener(this);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,5 +86,16 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        listaContactoAdapter.filtrado(query);
+        return false;
     }
 }

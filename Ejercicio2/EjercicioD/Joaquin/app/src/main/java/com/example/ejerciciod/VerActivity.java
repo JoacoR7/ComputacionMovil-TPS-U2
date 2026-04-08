@@ -54,7 +54,6 @@ public class VerActivity extends AppCompatActivity {
         fabEditar = findViewById(R.id.floatingActionButton);
         fabEliminar = findViewById(R.id.floatingActionButton2);
         fabEliminar.setVisibility(View.INVISIBLE);
-
         btn.setVisibility(View.INVISIBLE);
 
         if(savedInstanceState == null) {
