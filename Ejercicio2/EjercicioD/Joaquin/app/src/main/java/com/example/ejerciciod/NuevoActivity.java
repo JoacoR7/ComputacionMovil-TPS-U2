@@ -18,6 +18,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.ejerciciod.db.DbContactos;
 
+import java.util.Objects;
+
 public class NuevoActivity extends AppCompatActivity {
 
     Button button;
@@ -36,7 +38,7 @@ public class NuevoActivity extends AppCompatActivity {
 
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         button = findViewById(R.id.btnGuardarRegistro);
         inputNombre = findViewById(R.id.inputTextNombre);

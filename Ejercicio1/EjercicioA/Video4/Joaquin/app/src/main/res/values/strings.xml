@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ActivityCommunication</string>
+    <string name="comunicaci_n_entre_apps">Comunicación entre Apps</string>
+    <string name="ingrese_apellido">Ingrese Apellido...</string>
+    <string name="ingrese_celular">Ingrese Celular...</string>
+    <string name="enviar">Enviar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="celular">Celular</string>
+</resources>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/c_lculo_de_salario"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Input salario -->
+    <EditText
+        android:id="@+id/etSalario"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/salario"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@id/btnCalcular"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <!-- Botón calcular -->
+    <Button
+        android:id="@+id/btnCalcular"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/button_color"
+        android:text="@string/calcular"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/etSalario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/etSalario"
+        app:layout_constraintTop_toTopOf="@id/etSalario" />
+
+    <!-- ISSS -->
+    <TextView
+        android:id="@+id/tvIsss"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#EEEEEE"
+        android:gravity="center"
+        android:text="@string/isss_3"
+        app:layout_constraintEnd_toStartOf="@id/tvAfp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etSalario" />
+
+    <!-- AFP -->
+    <TextView
+        android:id="@+id/tvAfp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#EEEEEE"
+        android:gravity="center"
+        android:text="@string/afp_7_25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvIsss"
+        app:layout_constraintTop_toTopOf="@id/tvIsss" />
+
+    <!-- Renta -->
+    <TextView
+        android:id="@+id/tvRenta"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#EEEEEE"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:text="@string/renta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIsss" />
+
+    <!-- Líquido -->
+    <TextView
+        android:id="@+id/tvLiquido"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="#EEEEEE"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:text="@string/liquido_a_recibir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRenta" />
+
+    <!-- Botón nuevo cálculo -->
+    <Button
+        android:id="@+id/btnNuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#6A5ACD"
+        android:text="@string/nuevo_calculo"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLiquido" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
