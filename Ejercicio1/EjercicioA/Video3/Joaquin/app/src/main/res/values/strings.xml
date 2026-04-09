@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CalculoSalario</string>
+    <string name="c_lculo_de_salario">Cálculo de Salario</string>
+    <string name="salario">Salario $</string>
+    <string name="calcular">Calcular</string>
+    <string name="isss_3">ISSS 3%</string>
+    <string name="afp_7_25">AFP 7.25%</string>
+    <string name="renta">RENTA</string>
+    <string name="liquido_a_recibir">Liquido a Recibir $</string>
+    <string name="nuevo_calculo">Nuevo Calculo</string>
+</resources>
