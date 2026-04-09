@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ej3_b</string>
+    <string name="view">View</string>
+    <string name="product">Product:\ </string>
+    <string name="id">"ID:\ "</string>
+    <string name="name">Name:\ </string>
+    <string name="price">"Price:\ "</string>
+</resources>
