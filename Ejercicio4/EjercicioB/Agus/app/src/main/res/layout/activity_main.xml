@@ -4,36 +4,52 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="@dimen/cardview_default_elevation"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="EJEMPLO FRAGMENT STATIC"
+        android:text="FRAGMENTS DINÁMICOS"
+        android:textAlignment="center"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:paddingBottom="8dp" />
+        android:paddingBottom="16dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <fragment
-            android:id="@+id/fragment_rojo"
-            android:name="com.example.ejb.FragmentRojo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        <Button
+            android:id="@+id/btnRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:layout="@layout/fragment_rojo" />
+            android:text="Red" />
 
-        <fragment
-            android:id="@+id/fragment_verde"
-            android:name="com.example.ejb.FragmentVerde"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            tools:layout="@layout/fragment_verde" />
+        <Button
+            android:id="@+id/btnGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Green" />
+
+        <Button
+            android:id="@+id/btnBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Blue" />
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/containerFragments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>
