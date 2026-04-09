@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MenuContextual</string>
+    <string name="texto">Texto...</string>
+    <string name="agregar">Agregar</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+</resources>
