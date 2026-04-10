@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Ej3_b"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.EditActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.CreateActivity"
             android:exported="false" />
         <activity
