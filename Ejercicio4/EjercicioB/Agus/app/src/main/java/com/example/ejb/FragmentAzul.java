@@ -7,14 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentRojo#newInstance} factory method to
+ * Use the {@link FragmentAzul#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentRojo extends Fragment {
+public class FragmentAzul extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,9 +24,7 @@ public class FragmentRojo extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-
-    public FragmentRojo() {
+    public FragmentAzul() {
         // Required empty public constructor
     }
 
@@ -37,11 +34,11 @@ public class FragmentRojo extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentRojo.
+     * @return A new instance of fragment FragmentBlue.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentRojo newInstance(String param1, String param2) {
-        FragmentRojo fragment = new FragmentRojo();
+    public static FragmentAzul newInstance(String param1, String param2) {
+        FragmentAzul fragment = new FragmentAzul();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,7 +59,6 @@ public class FragmentRojo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_rojo, container, false);
+        return inflater.inflate(R.layout.fragment_blue, container, false);
     }
 }
