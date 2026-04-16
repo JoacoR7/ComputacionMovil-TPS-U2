@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder genérico de ciudad. Reemplazarlo con imágenes reales en res/drawable/ -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="90dp"
+    android:height="90dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Fondo gris -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M0,0 L24,0 L24,24 L0,24 Z" />
+
+    <!-- Ícono de ciudad (buildings simplificados) -->
+    <path
+        android:fillColor="#757575"
+        android:pathData="M1,22 L1,8 L8,8 L8,4 L16,4 L16,8 L23,8 L23,22 Z
+                          M3,20 L8,20 L8,14 L3,14 Z
+                          M10,20 L14,20 L14,10 L10,10 Z
+                          M16,20 L21,20 L21,14 L16,14 Z" />
+
+</vector>

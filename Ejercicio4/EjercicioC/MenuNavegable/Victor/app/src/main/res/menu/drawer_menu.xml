@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@android:drawable/ic_menu_compass"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@android:drawable/ic_menu_camera"
+            android:title="@string/gallery" />
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="@string/slideshow" />
+
+        <item
+            android:id="@+id/nav_ciudades"
+            android:icon="@android:drawable/ic_menu_mapmode"
+            android:title="@string/ciudades" />
+
+    </group>
+
+</menu>
